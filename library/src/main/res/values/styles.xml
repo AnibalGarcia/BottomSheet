@@ -7,7 +7,7 @@
         <item name="android:windowFrame">@null</item>
         <item name="android:textColor">@null</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -29,6 +29,7 @@
         <item name="bs_moreDrawable">@drawable/bs_ic_more_light</item>
         <item name="bs_listStyle">@style/BottomSheet.List</item>
         <item name="bs_collapseListIcons">true</item>
+		<item name="bs_gravity">bottom</item>
     </style>
 
     <style name="BottomSheet.Dialog.Dark" parent="BottomSheet.Dialog">
@@ -78,7 +79,7 @@
         <item name="android:minHeight">56dp</item>
         <item name="android:layout_marginLeft">16dp</item>
         <item name="android:layout_marginRight">16dp</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">?bs_titleTextAppearance</item>
         <item name="android:gravity">center_vertical</item>
@@ -119,7 +120,7 @@
     <style name="BottomSheet.ListItemTitle">
         <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">viewStart</item>
         <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginRight">16dp</item>
         <item name="android:textAppearance">?bs_listItemTitleTextAppearance</item>
@@ -127,7 +128,7 @@
 
     <style name="BottomSheet.ListDivider">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:minHeight">1dp</item>
         <item name="android:background">?bs_dividerColor</item>
         <item name="android:layout_marginTop">7dp</item>
@@ -162,9 +163,37 @@
 
     <style name="BottomSheet.TopDivider">
         <item name="android:background">?bs_dividerColor</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>
+
+
+	<!-- Top theme -->
+
+	<style name="BottomSheet.Dialog.Top" parent="BottomSheet.Dialog" >
+		<item name="android:windowAnimationStyle">@style/BottomSheet.Animation.Top</item>
+		<item name="bs_listStyle">@style/BottomSheet.List.Top</item>
+		<item name="bs_gravity">top</item>
+	</style>
+
+	<style name="BottomSheet.Dialog.Dark.Top" parent="BottomSheet.Dialog.Dark" >
+		<item name="android:windowAnimationStyle">@style/BottomSheet.Animation.Top</item>
+		<item name="bs_listStyle">@style/BottomSheet.List.Dark.Top</item>
+		<item name="bs_gravity">top</item>
+	</style>
+
+	<style name="BottomSheet.List.Top"  parent="BottomSheet.List" >
+		<item name="android:layoutAnimation">@anim/bs_list_layout_anim_in_top</item>
+	</style>
+
+	<style name="BottomSheet.List.Dark.Top"  parent="BottomSheet.List.Dark" >
+		<item name="android:layoutAnimation">@anim/bs_list_layout_anim_in_top</item>
+	</style>
+
+	<style name="BottomSheet.Animation.Top" >
+		<item name="android:windowEnterAnimation">@anim/dock_top_enter</item>
+		<item name="android:windowExitAnimation">@anim/dock_top_exit</item>
+	</style>
 
 </resources>

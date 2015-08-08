@@ -77,6 +77,7 @@ public class BottomSheet extends Dialog implements DialogInterface {
     private Drawable close;
     private Drawable more;
     private boolean collapseListIcons;
+	private int gravity;
     private int mStatusBarHeight;
     private GridView list;
     private SimpleSectionedGridAdapter adapter;
@@ -120,6 +121,7 @@ public class BottomSheet extends Dialog implements DialogInterface {
             close = a.getDrawable(R.styleable.BottomSheet_bs_closeDrawable);
             moreText = a.getString(R.styleable.BottomSheet_bs_moreText);
             collapseListIcons = a.getBoolean(R.styleable.BottomSheet_bs_collapseListIcons, true);
+			gravity = a.getInteger(R.styleable.BottomSheet_bs_gravity, 1);
         } finally {
             a.recycle();
         }
@@ -266,7 +268,7 @@ public class BottomSheet extends Dialog implements DialogInterface {
         final ClosableSlidingLayout mDialogView = (ClosableSlidingLayout) View.inflate(context, R.layout.bottom_sheet_dialog, null);
         setContentView(mDialogView);
         if (!cancelOnSwipeDown)
-            mDialogView.swipeable = cancelOnSwipeDown;
+            mDialogView.swipeable = false;
         mDialogView.setSlideListener(new ClosableSlidingLayout.SlideListener() {
             @Override
             public void onClosed() {
@@ -542,7 +544,13 @@ public class BottomSheet extends Dialog implements DialogInterface {
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        params.gravity = Gravity.BOTTOM;
+
+		if (gravity == 0)
+      		params.gravity = Gravity.TOP;
+
+		else
+			params.gravity = Gravity.BOTTOM;
+
 
         TypedArray a = getContext().obtainStyledAttributes(new int[]{android.R.attr.layout_width});
         try {
@@ -787,6 +795,30 @@ public class BottomSheet extends Dialog implements DialogInterface {
         }
 
 
+		/**
+		 * Show BottomSheet in the top side
+		 *
+		 * @return This Builder object to allow for chaining of calls to set methods
+		 */
+		public Builder topTheme() {
+			theme = R.style.BottomSheet_Dialog_Top;
+
+			return this;
+		}
+
+
+		/**
+		 * Show BottomSheet in dark color theme looking and in the top side
+		 *
+		 * @return This Builder object to allow for chaining of calls to set methods
+		 */
+		public Builder darkTopTheme() {
+			theme = R.style.BottomSheet_Dialog_Dark_Top;
+
+			return this;
+		}
+
+
         /**
          * Show BottomSheet
          *
@@ -855,6 +887,5 @@ public class BottomSheet extends Dialog implements DialogInterface {
             return this;
         }
     }
-
 
 }

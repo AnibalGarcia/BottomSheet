@@ -19,6 +19,7 @@
         <item name="bs_dividerColor">@color/abc_search_url_text_pressed</item>
         <item name="bs_numColumns">4</item>
         <item name="bs_listStyle">@style/BottomSheet.StyleList</item>
+		<item name="bs_gravity">bottom</item>
     </style>
 
     <style name="BottomSheet.StyleList" parent="BottomSheet.List.Dark" >

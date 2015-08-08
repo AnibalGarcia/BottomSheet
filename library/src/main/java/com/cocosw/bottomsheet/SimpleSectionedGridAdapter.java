@@ -25,7 +25,7 @@ class SimpleSectionedGridAdapter extends BaseAdapter{
     private int mSectionResourceId;
     private LayoutInflater mLayoutInflater;
     private ListAdapter mBaseAdapter;
-    SparseArray<Section> mSections = new SparseArray<Section>();
+    SparseArray<Section> mSections = new SparseArray <>();
     private Section[] mInitialSections = new Section[0];
     private Context mContext;
     private View mLastViewSeen;
@@ -87,9 +87,9 @@ class SimpleSectionedGridAdapter extends BaseAdapter{
         mGridView = gridView;
         mStrechMode = gridView.getStretchMode();
         mWidth = gridView.getWidth() - (mGridView.getPaddingLeft() + mGridView.getPaddingRight());
-        mNumColumns = ((PinnedSectionGridView)gridView).getNumColumns();
-        requestedColumnWidth = ((PinnedSectionGridView)gridView).getColumnWidth();
-        requestedHorizontalSpacing = ((PinnedSectionGridView)gridView).getHorizontalSpacing();
+        mNumColumns = ((PinnedSectionGridView) gridView).getNumColumns();
+        requestedColumnWidth = ((PinnedSectionGridView) gridView).getColumnWidth();
+        requestedHorizontalSpacing = ((PinnedSectionGridView) gridView).getHorizontalSpacing();
     }
 
     private int getHeaderSize(){
@@ -98,10 +98,10 @@ class SimpleSectionedGridAdapter extends BaseAdapter{
         }
         if(mWidth != mGridView.getWidth()){
             mStrechMode = mGridView.getStretchMode();
-            mWidth = ((PinnedSectionGridView)mGridView).getAvailableWidth() - (mGridView.getPaddingLeft() + mGridView.getPaddingRight());
-            mNumColumns = ((PinnedSectionGridView)mGridView).getNumColumns();
-            requestedColumnWidth = ((PinnedSectionGridView)mGridView).getColumnWidth();
-            requestedHorizontalSpacing = ((PinnedSectionGridView)mGridView).getHorizontalSpacing();
+            mWidth = ((PinnedSectionGridView) mGridView).getAvailableWidth() - (mGridView.getPaddingLeft() + mGridView.getPaddingRight());
+            mNumColumns = ((PinnedSectionGridView) mGridView).getNumColumns();
+            requestedColumnWidth = ((PinnedSectionGridView) mGridView).getColumnWidth();
+            requestedHorizontalSpacing = ((PinnedSectionGridView) mGridView).getHorizontalSpacing();
         }
 
         int spaceLeftOver = mWidth - (mNumColumns * requestedColumnWidth) -
@@ -333,7 +333,7 @@ class SimpleSectionedGridAdapter extends BaseAdapter{
         public static <T extends View> T get(View view, int id) {
             SparseArray<View> viewHolder = (SparseArray<View>) view.getTag();
             if (viewHolder == null) {
-                viewHolder = new SparseArray<View>();
+                viewHolder = new SparseArray <>();
                 view.setTag(viewHolder);
             }
             View childView = viewHolder.get(id);

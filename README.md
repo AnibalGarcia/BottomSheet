@@ -96,6 +96,7 @@ Style
         <item name="bs_dividerColor">@color/abc_search_url_text_pressed</item>
         <item name="bs_numColumns">4</item>
         <item name="bs_listStyle">@style/BottomSheet.StyleList</item>
+		<item name="bs_gravity">bottom</item>
     </style>
 ```
 - Or set bottomesheet style in your activity theme
